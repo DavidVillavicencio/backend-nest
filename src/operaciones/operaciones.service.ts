@@ -2,18 +2,18 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class OperacionesService {
-    operar(operacion: string = '', a: number, b: number){
+    operar(operacion: string = '', a: number, b?: number){
             switch (operacion.toLowerCase()) {
         case 'suma':
-            return this.#suma(a, b);
+            return this.#suma(a, b!);
         case 'resta':
-            return this.#resta(a, b);
-        case 'multiplicacion':
+            return this.#resta(a, b!);
+        case 'multiplicar':
             return this.#multiplicar(a, b!);
-        case 'division':
-            return this.#dividir(a, b);
+        case 'dividir':
+            return this.#dividir(a, b!);
         case 'potencia':
-            return this.#potencia(a, b);
+            return this.#potencia(a, b!);
         case 'factorial':
             return this.#factorial(a);
         default:
@@ -74,18 +74,18 @@ export class OperacionesService {
         return Math.pow(a, b);
     }
 
-    #factorial(n: number){
-        if (n === undefined) {
+    #factorial(a: number){
+        if (a === undefined) {
             throw new Error('No se puede llamar con numeros indefinidos');
         }
-        if (typeof n !== 'number' || n < 0) {
+        if (typeof a !== 'number' || a < 0) {
             return NaN;
         }
-        if (n === 0 || n === 1) {
+        if (a === 0 || a === 1) {
             return 1;
         }
         let resultado = 1;
-        for (let i = 2; i <= n; i++) {
+        for (let i = 2; i <= a; i++) {
             resultado *= i;
         }
         return resultado;
