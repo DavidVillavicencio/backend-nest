@@ -108,6 +108,7 @@ describe('AppController (e2e)', () => {
       });
   });
 
+  // Test para la ruta /operaciones "MULTIPLICAR" con error
   it('/operaciones (GET)', () => {
     return request(app.getHttpServer())
       .get('/operaciones')

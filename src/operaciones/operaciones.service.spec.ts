@@ -189,12 +189,12 @@ describe('OperacionesService', () => {
     a = null;
     expect(service.operar('factorial', a)).toBeNaN();
 
+    a = '5';
+    expect(service.operar('factorial', a)).toBeNaN();
     a = undefined;
+
     expect(() => {
       service.operar('factorial', a);
     }).toThrow('No se puede llamar con numeros indefinidos');
-
-    a = '5';
-    expect(service.operar('factorial', a)).toBeNaN();
   });
 });
