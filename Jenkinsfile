@@ -47,7 +47,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("${registry}", registryCredentials ){
-                        sh "docker build -t backend-nest-cmd ."
+                        sh "docker build -t backend-nest-dvs ."
                         sh "docker tag backend-nest-cmd ${dockerImagePrefix}/backend-nest-cmd"
                         sh "docker push ${dockerImagePrefix}/backend-nest-cmd"
                     }
